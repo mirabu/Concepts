@@ -1,0 +1,86 @@
+public class BankAccount {
+    protected String accountHolderName;
+    protected double balance;
+
+    public BankAccount(String accountHolderName, double balance) {
+        this.accountHolderName = accountHolderName;
+        this.balance = balance;
+    }
+
+    public void deposit(double amount) {
+        balance += amount;
+        System.out.println("Deposited: " + amount + ". New Balance: " + balance);
+    }
+
+    public void withdraw(double amount) {
+        if (balance >= amount) {
+            balance -= amount;
+            System.out.println("Withdrawn: " + amount + ". Remaining Balance: " + balance);
+        } else {
+            System.out.println("Insufficient Balance!");
+        }
+    }
+}
+
+
+public class SavingsAccount extends BankAccount {
+    private double interestRate;
+
+    public SavingsAccount(String accountHolderName, double balance, double interestRate) {
+        super(accountHolderName, balance);
+        this.interestRate = interestRate;
+    }
+
+    public void addInterest() {
+        double interest = balance * interestRate / 100;
+        balance += interest;
+        System.out.println("Interest added: " + interest + ". New Balance: " + balance);
+    }
+}
+
+
+public class CheckingAccount extends BankAccount {
+    private int withdrawalLimit;
+
+    public CheckingAccount(String accountHolderName, double balance, int withdrawalLimit) {
+        super(accountHolderName, balance);
+        this.withdrawalLimit = withdrawalLimit;
+    }
+
+    @Override
+    public void withdraw(double amount) {
+        if (withdrawalLimit > 0) {
+            super.withdraw(amount);
+            withdrawalLimit--;
+            System.out.println("Remaining Withdrawals: " + withdrawalLimit);
+        } else {
+            System.out.println("Withdrawal limit reached!");
+        }
+    }
+}
+
+
+public class Main {
+    public static void main(String[] args) {
+        SavingsAccount savings = new SavingsAccount("Alice", 1000.0, 5.0);
+        savings.deposit(500);
+        savings.addInterest();
+
+        CheckingAccount checking = new CheckingAccount("Bob", 2000.0, 3);
+        checking.withdraw(500);
+        checking.withdraw(700);
+        checking.withdraw(200);
+        checking.withdraw(100); // Exceeds withdrawal limit
+    }
+}
+
+//output
+Deposited: 500.0. New Balance: 1500.0
+Interest added: 75.0. New Balance: 1575.0
+Withdrawn: 500.0. Remaining Balance: 1500.0
+Remaining Withdrawals: 2
+Withdrawn: 700.0. Remaining Balance: 800.0
+Remaining Withdrawals: 1
+Withdrawn: 200.0. Remaining Balance: 600.0
+Remaining Withdrawals: 0
+Withdrawal limit reached!

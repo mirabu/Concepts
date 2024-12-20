@@ -1,0 +1,220 @@
+Here’s a comprehensive list of interview questions on Objects and Classes in Java, covering a range of difficulty levels and practical examples.
+
+Basic Questions
+What is a class in Java?
+
+A class is a blueprint or template for creating objects. It defines the attributes (fields) and behaviors (methods) that the objects created from the class will have.
+What is an object in Java?
+
+An object is an instance of a class. It represents a real-world entity with state (attributes) and behavior (methods).
+What is the relationship between a class and an object in Java?
+
+A class defines the structure and behavior, while an object is an actual instance of that class, with specific values for the attributes.
+How do you create an object in Java?
+
+You use the new keyword to create an instance of a class.
+java
+Copy code
+ClassName obj = new ClassName();
+What is the default constructor in Java?
+
+A default constructor is a no-argument constructor provided by Java if no other constructors are defined. It initializes objects with default values (e.g., null for objects, 0 for integers).
+Intermediate Questions
+Can a class have multiple constructors?
+
+Yes, a class can have multiple constructors (constructor overloading) with different parameter lists.
+What is the this keyword in Java?
+
+The this keyword refers to the current object. It is used to refer to instance variables or invoke other constructors in the same class.
+What is the role of the new keyword in object creation?
+
+The new keyword allocates memory for the object on the heap and calls the constructor to initialize it.
+Can an object be created without using the new keyword?
+
+Yes, you can create an object using methods like clone() or by deserializing an object, though new is the most common method.
+What is the significance of the final keyword when applied to a class, method, or variable?
+
+final class: Cannot be subclassed.
+final method: Cannot be overridden.
+final variable: The value cannot be changed once initialized.
+What are instance variables and local variables in Java?
+
+Instance variables: Variables declared in a class but outside methods; each object has its own copy.
+Local variables: Variables declared inside methods or constructors; they are temporary and only exist during the method execution.
+What is the difference between a class variable and an instance variable?
+
+Class variables are shared among all instances of the class (declared static).
+Instance variables are unique to each object created from the class.
+What is method overloading?
+
+Method overloading is when multiple methods in the same class have the same name but different parameter lists (number or type of parameters).
+What is method overriding?
+
+Method overriding occurs when a subclass provides a specific implementation of a method already defined in its superclass.
+What is a static method in Java?
+
+A static method belongs to the class rather than an instance of the class. It can be called without creating an object.
+Advanced Questions
+What is a constructor in Java, and what is its purpose?
+
+A constructor initializes an object when it is created. It has the same name as the class and no return type.
+What is the purpose of the super keyword in Java?
+
+The super keyword refers to the superclass of the current object. It is used to access superclass constructors, methods, and fields.
+Can you call a constructor explicitly in Java?
+
+Yes, using the new keyword or the super() method in the constructor of a subclass.
+What happens if you don’t define a constructor in a class?
+
+If no constructor is defined, Java provides a default constructor (no arguments) that initializes the object with default values.
+What is the significance of the Object class in Java?
+
+The Object class is the root of the Java class hierarchy. Every class in Java inherits from the Object class. It provides essential methods like toString(), equals(), and hashCode().
+What is the difference between shallow copy and deep copy in Java?
+
+Shallow copy: Copies the values of the original object, but for objects within, only references are copied.
+Deep copy: Creates a new object and recursively copies all objects inside the original object.
+What is object serialization in Java?
+
+Serialization is the process of converting an object into a byte stream for storage or transmission. Deserialization is the reverse process.
+What is the difference between clone() and the new keyword in object creation?
+
+clone() creates a copy of an existing object, while new creates a new instance from the class.
+What is the role of a static block in Java?
+
+A static block is used to initialize class-level data when the class is loaded into memory.
+Can a class be abstract and still have constructors?
+
+Yes, an abstract class can have constructors, which are called when a subclass is instantiated.
+Practical/Scenario-Based Questions
+How would you design a class for a “Car” with attributes like color, make, and model, and behaviors like start() and stop()?
+
+Define the Car class with appropriate constructors, attributes, and methods.
+How would you design a Book class to handle attributes like title, author, and price, and provide methods for displaying book details and applying a discount to the price?
+
+Create the Book class with private fields, constructors, and methods like getDetails() and applyDiscount().
+Can you demonstrate method overloading with a calculateArea() method for different shapes (circle, rectangle)?
+
+Example:
+java
+Copy code
+class AreaCalculator {
+    public double calculateArea(double radius) {
+        return Math.PI * radius * radius; // Circle
+    }
+
+    public double calculateArea(double length, double width) {
+        return length * width; // Rectangle
+    }
+}
+How would you create a class Employee with methods to display employee information and calculate salary, while ensuring employee data is protected?
+
+Use encapsulation to protect fields and provide public getter/setter methods.
+Design a Student class with fields for name, id, marks, and methods to calculate the total marks and average score.
+
+Example:
+java
+Copy code
+class Student {
+    private String name;
+    private int id;
+    private int[] marks;
+
+    public Student(String name, int id, int[] marks) {
+        this.name = name;
+        this.id = id;
+        this.marks = marks;
+    }
+
+    public int calculateTotal() {
+        int total = 0;
+        for (int mark : marks) {
+            total += mark;
+        }
+        return total;
+    }
+
+    public double calculateAverage() {
+        return calculateTotal() / (double) marks.length;
+    }
+}
+Coding Examples
+1. Creating an Object and Calling Methods
+java
+Copy code
+class Person {
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public void introduce() {
+        System.out.println("Hello, I am " + name + " and I am " + age + " years old.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Person person1 = new Person("Alice", 30);
+        person1.introduce(); // Output: Hello, I am Alice and I am 30 years old.
+    }
+}
+2. Constructor Overloading Example
+java
+Copy code
+class Rectangle {
+    private double length;
+    private double width;
+
+    public Rectangle() {
+        this.length = 1.0;
+        this.width = 1.0;
+    }
+
+    public Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    public double area() {
+        return length * width;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Rectangle rect1 = new Rectangle();
+        System.out.println("Area of default rectangle: " + rect1.area());
+
+        Rectangle rect2 = new Rectangle(5.0, 3.0);
+        System.out.println("Area of custom rectangle: " + rect2.area());
+    }
+}
+3. Static Methods Example
+java
+Copy code
+class MathUtil {
+    public static int add(int a, int b) {
+        return a + b;
+    }
+
+    public static int multiply(int a, int b) {
+        return a * b;
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.println(MathUtil.add(5, 3)); // Output: 8
+        System.out.println(MathUtil.multiply(5, 3)); // Output: 15
+    }
+}
+Miscellaneous Questions
+What happens when a method is called on a null object reference?
+Can you call a non-static method inside a static method?
+What are the limitations of the clone() method?
+How does Java handle memory management for objects?
+What is the significance of the toString() method in a class?

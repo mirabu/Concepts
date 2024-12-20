@@ -1,0 +1,181 @@
+Here’s a comprehensive list of interview questions on polymorphism in Java, covering theoretical, practical, and advanced scenarios:
+
+Basic Questions
+What is polymorphism in Java?
+
+Explain the concept of polymorphism and its types: compile-time (static) and runtime (dynamic).
+What are the main benefits of polymorphism?
+
+Discuss benefits like code reusability, flexibility, and extensibility.
+What is the difference between compile-time and runtime polymorphism?
+
+Highlight how compile-time polymorphism (method overloading) is resolved at compile-time and runtime polymorphism (method overriding) is resolved at runtime.
+What is method overloading?
+
+Explain how the same method name can have different parameter lists (types, order, or count).
+What is method overriding?
+
+Discuss how a subclass provides a specific implementation of a method defined in its parent class.
+What is the role of polymorphism in object-oriented programming?
+
+Explain how it allows one interface to be used for a general class of actions.
+Intermediate Questions
+What is the difference between method overloading and method overriding?
+
+Compare their purpose, implementation, and when they occur (compile-time vs runtime).
+How does Java achieve runtime polymorphism?
+
+Discuss dynamic method dispatch and the use of method overriding.
+What are the rules for method overriding in Java?
+
+Key rules include:
+Same method name, return type, and parameters.
+The access modifier of the overriding method should not reduce visibility.
+The overriding method cannot throw a new or broader exception than the overridden method.
+What is a covariant return type in method overriding?
+
+Explain how an overriding method can return a subtype of the parent class's return type.
+What is the role of the super keyword in polymorphism?
+
+Discuss how it is used to call a parent class’s method.
+Can constructors be overloaded?
+
+Explain that constructors can be overloaded but not overridden.
+What is the purpose of the @Override annotation?
+
+Discuss how it ensures that a method is being correctly overridden and helps prevent errors.
+What happens when a method is overridden but called using a parent reference?
+
+Explain that the method in the child class is executed due to dynamic method dispatch.
+Advanced Questions
+What is the difference between polymorphism and inheritance?
+
+Compare the two concepts and explain how they are interrelated.
+How does polymorphism affect memory allocation and execution?
+
+Discuss how the JVM resolves method calls at runtime using the virtual method table (VMT).
+Can static methods be overridden?
+
+Explain why static methods belong to the class, not the instance, and discuss method hiding.
+What is the role of polymorphism in designing an extensible system?
+
+Provide examples where polymorphism makes the code easier to extend and maintain.
+What is the difference between dynamic binding and static binding?
+
+Highlight that static binding happens during compilation (e.g., method overloading), while dynamic binding happens at runtime (e.g., method overriding).
+What is an example of polymorphism with interfaces?
+
+Discuss how a single interface reference can point to multiple implementing classes.
+How does polymorphism work with generics in Java?
+
+Explain type safety and bounded wildcards (<? extends> and <? super>).
+What are the limitations or disadvantages of polymorphism?
+
+Mention potential issues like increased complexity and the risk of incorrect type casting.
+What is the difference between polymorphism and abstraction?
+
+Compare their purposes: abstraction hides implementation, while polymorphism allows dynamic behavior.
+What happens if a subclass has a static method with the same signature as a static method in the parent class?
+
+Discuss method hiding, not overriding.
+How does polymorphism work in the context of collections?
+
+Explain how polymorphic behavior enables operations on heterogeneous collections using parent references.
+Practical/Scenario-Based Questions
+How would you use polymorphism in a real-world application (e.g., payment processing)?
+
+Example: A Payment class with CreditCardPayment, PayPalPayment, and BankTransferPayment subclasses, all overriding a processPayment method.
+Can you write a program to demonstrate method overloading and method overriding?
+
+What happens when you try to override a final method?
+
+Explain that it leads to a compilation error because final methods cannot be overridden.
+How does polymorphism enable the Open/Closed Principle?
+
+Provide an example where a class hierarchy is designed to allow extension without modification.
+Can you demonstrate polymorphism with abstract classes and interfaces?
+
+Coding Questions
+1. Method Overloading Example
+Write a program to demonstrate method overloading with different parameter types and numbers.
+
+java
+Copy code
+public class Calculator {
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    public double add(double a, double b) {
+        return a + b;
+    }
+
+    public int add(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    public static void main(String[] args) {
+        Calculator calc = new Calculator();
+        System.out.println(calc.add(2, 3));
+        System.out.println(calc.add(2.5, 3.5));
+        System.out.println(calc.add(1, 2, 3));
+    }
+}
+2. Method Overriding Example
+Demonstrate method overriding using a parent-child relationship.
+
+java
+Copy code
+class Animal {
+    public void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    public void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal animal = new Dog(); // Polymorphic behavior
+        animal.sound(); // Dog barks
+    }
+}
+3. Polymorphism with Interfaces
+java
+Copy code
+interface Shape {
+    void draw();
+}
+
+class Circle implements Shape {
+    @Override
+    public void draw() {
+        System.out.println("Drawing a Circle");
+    }
+}
+
+class Rectangle implements Shape {
+    @Override
+    public void draw() {
+        System.out.println("Drawing a Rectangle");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Shape shape = new Circle(); // Polymorphic behavior
+        shape.draw(); // Drawing a Circle
+        shape = new Rectangle(); // Polymorphic behavior
+        shape.draw(); // Drawing a Rectangle
+    }
+}
+Miscellaneous Questions
+How does polymorphism contribute to clean code?
+What is the role of polymorphism in frameworks like Spring or Hibernate?
+How does Java handle polymorphism internally?
+Can you explain polymorphism with real-world analogies?

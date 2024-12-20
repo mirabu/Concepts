@@ -1,0 +1,144 @@
+Basic Questions
+
+1) What is inheritance in Java?
+-> Inheritance is the child class aquires the parent class properties 
+- with the help of we can achive method overriding 
+- use for code reusability
+Explain the concept of inheritance and its benefits (code reuse, extensibility).
+
+
+2) What are the key features of inheritance?
+-> Discuss features like parent-child relationships, shared properties, and overriding.
+
+3) What are the different types of inheritance in Java?
+-> Single, multilevel, hierarchical (mention why multiple inheritance is not supported with classes).
+
+4) Can a class inherit multiple classes in Java? Why or why not?
+Explain the diamond problem and how Java avoids it by not supporting multiple inheritance with classes but allowing it with interfaces.
+-> No , we cant inherit multiple classes, because if we do that time diamond problem occurs and code become more complex
+and more difficulty and more ambigvity in it ,
+better to use Interface, if we use interface that time be simply maintain 
+code simplicity , maintability easy to understand
+
+m m 
+
+
+
+
+Intermediate Questions
+1) What is the difference between extends and implements in Java?
+-> we use extend for class inheritations 
+   and implement for interface inheritation 
+Highlight that extends is for inheritance between classes, while implements is for interfaces.
+
+2) What is the purpose of the super keyword?
+-> Discuss its use to call parent class constructors and methods.
+super keyword is use for accesing the parent class(method, constructors, members)
+
+3) What happens if you don’t explicitly call a parent class constructor in a subclass?
+-> Explain that the default no-argument constructor of the parent is automatically called.
+if parent class have the no argument constructors
+you can called implecityl
+if arg-const is present in parent class that time it not create no-argument constructor
+
+
+4) What is method overriding?(Runtime polymorphism)
+-> A method is present in parent class as well as in child class 
+it must have -  sameName, sameReturnType, sameParam
+sameSignature
+
+5) why use @Override
+-> override keyword is use for the override the parent class methods
+without override the code works properly but it not check at compile time the method signature and all
+if we use override so its check the method correctly override it
+and also check the other details like methodsignature and all
+
+
+6) What is the role of protected access modifier in inheritance?
+-> When a subclass inherits a field or method that is marked protected from a superclass, it can directly access these members.
+Highlight how protected allows access to subclasses in the same or different packages.
+
+7) What is a final class, and can it be inherited?
+->Discuss the final keyword and how it prevents inheritance.
+No, we canot inherite the final class ,
+becasue it create the immutalble releated data , security reasons 
+
+
+8) What is the difference between this and super in Java?
+->this refer the current instance
+super is used for the use parent class members
+
+9) Can a constructor be inherited?
+->Explain why constructors are not inherited but can be called using super.
+no , we cannot inherit the constructor in java
+reason : they are not members of class, use for object reaation,
+Encapsulation and Flexibility: Allowing subclasses to define their own constructors provides more flexibility and ensures that the subclass can properly initialize itself without being constrained by the parent's constructor.
+
+
+
+
+
+Advanced Questions
+1) What is the difference between an abstract class and inheritance?
+Discuss how abstract classes enforce structure but require inheritance for implementation.
+
+2) Explain the concept of downcasting and upcasting in inheritance.
+Use examples to demonstrate the conversion between parent and child types.
+upcasting - > Parent par = new Child(); use for refrences , allow to use methods form superclass
+downcasting - > Chiled child = new Parent(); not used becasuese classCastExceptionIOccures
+but you need to access methods or properties that are specific to the subclass. It is only safe to downcast if the object is actually an instance of the subclass you're casting to.
+
+3) What is the impact of changing a parent class on a subclass in inheritance?
+Discuss backward compatibility, overridden methods, and dependency issues.
+
+4) How does inheritance affect memory allocation and method execution in Java?
+Explain the role of the heap and stack and the importance of method resolution at runtime.
+upcasting, downcasting , variables , finals ,security
+
+5) What is the purpose of the instanceof operator in inheritance?
+Discuss how it is used to check an object’s runtime type.
+check the instace of object it is or not 
+downcastung effectiverly 
+
+6) What is the difference between inheritance and composition?
+Compare "is-a" (inheritance) with "has-a" (composition) relationships, with examples.
+
+7) What is the diamond problem in inheritance?
+Discuss the issue with multiple inheritance and how Java resolves it using interfaces.
+
+8) How does inheritance work with generics?
+Explore bounded types and how generics influence inheritance hierarchies.
+
+9) What are some common pitfalls or drawbacks of inheritance?
+Discuss tight coupling, fragile base class problems, and misuse of inheritance for code reuse.
+Practical/Scenario-Based Questions
+
+10) Can you explain polymorphism using inheritance?
+Use an example of a parent reference pointing to a child object and calling overridden methods.
+
+11) When would you avoid using inheritance?
+Discuss scenarios where composition is preferred over inheritance.
+
+12) How would you design a class hierarchy for a real-world problem (e.g., a vehicle system)?
+Test the ability to design an inheritance structure.
+
+13) What happens if a subclass has the same field as its parent class?
+Explain shadowing and how to access the parent class field using super.
+
+14) Can you inherit a static method in Java? Why or why not?
+Explain that static methods belong to the class, not instances, and hence cannot be overridden.
+No
+
+15) If a parent class constructor throws an exception, what must a subclass do?
+Discuss how the subclass constructor must handle or declare the exception.
+
+16) Can a subclass access private fields or methods of a parent class?
+Explain why private members are not inherited and how accessors (getters/setters) help.
+
+
+Coding Questions
+1) Write a program demonstrating single, multilevel, and hierarchical inheritance.
+2) Create an abstract class and demonstrate inheritance with at least one concrete subclass.
+3) Write a program to override a method in a subclass and invoke the parent class method using super.
+4) Design a banking application with a parent Account class and multiple account types (Savings, Checking, etc.).
+5) Implement a scenario where you handle the instanceof operator in an inheritance hierarchy.
