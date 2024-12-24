@@ -1,0 +1,20 @@
+Java beans : model class in java where all other multiple objects into in single object
+it must be :
+1) class is public 
+2) no arguments constructor/ public constructor
+3)make it serilizable
+4)data encapsulation or make it privte some field
+5)setter getter
+
+
+Properties of setter Methods
+It must be public in nature.
+The return type a should be void.
+The setter method uses prefix set.
+It should take some argument.
+
+Properties of getter Methods
+It must be public in nature.
+The return type should not be void.
+The getter method uses prefix get.
+It does not take any argument.
